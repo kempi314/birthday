@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>謎解きサイト - 問題2</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container" id="mainContainer">
         <h1>謎解きチャレンジ</h1>
         <div class="progress">問題 2 / 3</div>
-        
+
         <div class="question-box">
             <h2>第2問</h2>
             <div class="image-container">
                 <img src="images/Q2.png" alt="問題2の画像" class="question-image">
             </div>
         </div>
-        
+
         <div class="answer-section">
             <input type="text" id="answer" placeholder="答えを入力してください" autocomplete="off">
             <button onclick="checkAnswer()">解答する</button>
             <p id="message" class="message"></p>
         </div>
     </div>
-    
+
     <div class="gif-overlay" id="gifOverlay">
-        <img src="images/正解gif/Brilliant.gif" alt="正解！" class="celebration-gif">
+        <img src="images/correctgif/Brilliant.gif" alt="正解！" class="celebration-gif">
     </div>
-    
+
     <script>
         const correctAnswer = "テスト"; // ここに正解を設定
-        
+
         function checkAnswer() {
             const userAnswer = document.getElementById('answer').value.trim();
             const message = document.getElementById('message');
-            
+
             if (userAnswer === correctAnswer) {
                 message.textContent = "正解！";
                 message.className = "message success";
-                
+
                 // GIFオーバーレイを表示
                 document.getElementById('gifOverlay').classList.add('show');
-                
+
                 // 2秒後に次のページへ
                 setTimeout(() => {
                     window.location.href = "question3.html";
@@ -52,12 +54,13 @@
                 message.className = "message error";
             }
         }
-        
-        document.getElementById('answer').addEventListener('keypress', function(e) {
+
+        document.getElementById('answer').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 checkAnswer();
             }
         });
     </script>
 </body>
+
 </html>
