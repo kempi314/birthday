@@ -30,6 +30,10 @@
     </div>
     
     <script>
+        // GIFを事前読み込み
+        const gifImg = new Image();
+        gifImg.src = 'images/correctgif/Great.gif';
+        
         // URLパラメータをチェック
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('result') === 'ok') {

@@ -28,10 +28,14 @@
     </div>
 
     <div class="gif-overlay" id="gifOverlay">
-        <img src="images/correctgif/Brilliant.gif" alt="正解！" class="celebration-gif">
+        <img src="images/correctgif/Brilliant.gif" alt="正解！" class="celebration-gif" id="celebrationGif">
     </div>
 
     <script>
+        // GIFを事前読み込み
+        const gifImg = new Image();
+        gifImg.src = 'images/correctgif/Brilliant.gif';
+    
         const correctAnswer = "テスト"; // ここに正解を設定
 
         function checkAnswer() {
