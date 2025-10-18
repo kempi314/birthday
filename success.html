@@ -9,12 +9,25 @@
 </head>
 
 <body>
-    <div class="fullscreen-container">
-        <img src="images/result.png" alt="クリア画像" class="fullscreen-gif">
-        <button onclick="location.href='index.html'" class="restart-button-overlay">
-            最初からやり直す
-        </button>
+    <div class="container">
+        <div class="success-box">
+            <div class="image-container">
+                <img src="images/result.gif" alt="クリア画像" class="final-image" id="resultGif">
+            </div>
+            <button onclick="location.href='index.html'" class="restart-button">
+                最初からやり直す
+            </button>
+        </div>
     </div>
+    
+    <script>
+        // GIFを事前読み込みしてループ再生を確実にする
+        const resultGif = new Image();
+        resultGif.src = 'images/result.gif';
+        resultGif.onload = function() {
+            document.getElementById('resultGif').src = 'images/result.gif';
+        };
+    </script>
 </body>
 
 </html>
