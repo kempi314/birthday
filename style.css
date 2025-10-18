@@ -17,14 +17,16 @@ body {
 .container {
     background: white;
     border-radius: 0;
-    padding: 40px 60px;
+    padding: 20px 30px;
     max-width: 100%;
     width: 100%;
     min-height: 100vh;
+    max-height: 100vh;
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 @media (min-width: 1200px) {
@@ -51,12 +53,17 @@ h1 {
     text-align: center;
     color: #E74C3C;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 1.2em;
+    flex-shrink: 0;
 }
 
 .question-box {
-    margin-bottom: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
 }
 
 .question-box h2 {
@@ -67,33 +74,36 @@ h1 {
 
 .image-container {
     text-align: center;
-    margin: 20px 0;
-    min-height: 200px;
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
+    min-height: 0;
 }
 
 .question-image {
     max-width: 100%;
-    width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: block;
+    object-fit: contain;
 }
 
 .answer-section {
     text-align: center;
+    flex-shrink: 0;
 }
 
 #answer {
     width: 100%;
-    padding: 15px;
-    font-size: 1.1em;
+    padding: 12px;
+    font-size: 1em;
     border: 2px solid #ddd;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     transition: border-color 0.3s;
 }
 
@@ -106,8 +116,8 @@ button {
     background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.1em;
+    padding: 12px 30px;
+    font-size: 1em;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -123,11 +133,11 @@ button:active {
 }
 
 .message {
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 10px;
+    padding: 10px;
     border-radius: 10px;
     font-weight: bold;
-    min-height: 50px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
