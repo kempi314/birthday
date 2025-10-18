@@ -17,16 +17,14 @@ body {
 .container {
     background: white;
     border-radius: 0;
-    padding: 20px 30px;
+    padding: 15px 20px;
     max-width: 100%;
     width: 100%;
-    min-height: 100vh;
-    max-height: 100vh;
+    height: 100vh;
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
+    overflow: auto;
 }
 
 @media (min-width: 1200px) {
@@ -59,11 +57,12 @@ h1 {
 }
 
 .question-box {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 0;
+    min-height: 200px;
+    overflow: hidden;
 }
 
 .question-box h2 {
@@ -74,12 +73,13 @@ h1 {
 
 .image-container {
     text-align: center;
-    margin: 10px 0;
+    margin: 5px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    min-height: 0;
+    flex: 1 1 auto;
+    min-height: 150px;
+    overflow: hidden;
 }
 
 .question-image {
@@ -94,16 +94,17 @@ h1 {
 
 .answer-section {
     text-align: center;
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    margin-top: 10px;
 }
 
 #answer {
     width: 100%;
-    padding: 12px;
-    font-size: 1em;
+    padding: 10px;
+    font-size: 0.95em;
     border: 2px solid #ddd;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     transition: border-color 0.3s;
 }
 
@@ -116,8 +117,8 @@ button {
     background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
     color: white;
     border: none;
-    padding: 12px 30px;
-    font-size: 1em;
+    padding: 10px 25px;
+    font-size: 0.95em;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -133,11 +134,12 @@ button:active {
 }
 
 .message {
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 8px;
+    padding: 8px;
     border-radius: 10px;
     font-weight: bold;
-    min-height: 40px;
+    min-height: 35px;
+    font-size: 0.9em;
     display: flex;
     align-items: center;
     justify-content: center;
