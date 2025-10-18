@@ -8,45 +8,70 @@
     <style>
         .reward-container {
             text-align: center;
-            padding: 60px 40px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
         }
         
-        .reward-title {
-            font-size: 3em;
-            color: #667eea;
-            margin-bottom: 30px;
-            animation: fadeInDown 1s ease;
-        }
-        
-        .reward-message {
-            font-size: 1.5em;
-            color: #555;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .reward-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 60px;
-            border-radius: 20px;
-            font-size: 2em;
+        .birthday-text {
+            font-size: 2.5em;
             font-weight: bold;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: bounceIn 1s ease;
             margin: 20px 0;
+            opacity: 0;
         }
         
-        @keyframes fadeInDown {
+        .name-text {
+            color: #E74C3C;
+            animation: fadeInScale 1s ease forwards;
+        }
+        
+        .age-text {
+            color: #3498db;
+            animation: fadeInScale 1s ease 1s forwards;
+        }
+        
+        .congrats-text {
+            color: #E74C3C;
+            animation: fadeInScale 1s ease 2s forwards;
+        }
+        
+        .celebration-emoji {
+            font-size: 4em;
+            animation: bounceIn 1s ease 3s forwards;
+            opacity: 0;
+        }
+        
+        .gift-section {
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease 4s forwards;
+        }
+        
+        .warning-text {
+            font-size: 0.9em;
+            color: #888;
+            margin: 10px 0;
+        }
+        
+        .amazon-button {
+            background: linear-gradient(135deg, #FF9900 0%, #FF7700 100%);
+            margin-top: 20px;
+        }
+        
+        .amazon-button:hover {
+            box-shadow: 0 5px 20px rgba(255, 153, 0, 0.4);
+        }
+        
+        @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: scale(0.5);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
         
@@ -65,7 +90,7 @@
                 transform: scale(0.3);
             }
             50% {
-                transform: scale(1.05);
+                transform: scale(1.2);
             }
             70% {
                 transform: scale(0.9);
@@ -75,26 +100,54 @@
                 transform: scale(1);
             }
         }
+        
+        @media (max-width: 768px) {
+            .birthday-text {
+                font-size: 1.8em;
+            }
+            
+            .celebration-emoji {
+                font-size: 3em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="reward-container">
-            <h1 class="reward-title">🎉 特別報酬 🎉</h1>
-            <p class="reward-message">
-                おめでとうございます！<br>
-                隠しルートを発見しました！
-            </p>
-            <div class="reward-badge">
-                🏆 マスター称号獲得 🏆
+            <div class="birthday-text name-text">けんぴ。さん</div>
+            <div class="birthday-text age-text">27歳</div>
+            <div class="birthday-text congrats-text">おめでとう！</div>
+            <div class="celebration-emoji">🎂🎉🎁</div>
+            
+            <div class="gift-section">
+                <p class="warning-text">※ ボタンを押すとAmazonのサイトに飛ぶので配信には映さないほうが良いです。</p>
+                <button class="amazon-button" id="giftButton" onclick="openGiftLink()">
+                    プレゼントを受け取る
+                </button>
             </div>
-            <p class="reward-message" style="margin-top: 40px;">
-                あなたは真の謎解きマスターです！
-            </p>
-            <button onclick="location.href='index.html'" style="margin-top: 30px;">
-                最初に戻る
-            </button>
         </div>
     </div>
+    
+    <script>
+        // URLパラメータからAmazonリンクを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const amazonLink = urlParams.get('amznlik');
+        
+        function openGiftLink() {
+            if (amazonLink) {
+                window.location.href = amazonLink;
+            } else {
+                alert('プレゼントリンクが設定されていません。');
+            }
+        }
+        
+        // リンクがない場合はボタンを無効化
+        if (!amazonLink) {
+            document.getElementById('giftButton').disabled = true;
+            document.getElementById('giftButton').style.opacity = '0.5';
+            document.getElementById('giftButton').style.cursor = 'not-allowed';
+        }
+    </script>
 </body>
 </html>

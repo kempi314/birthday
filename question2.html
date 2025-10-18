@@ -31,6 +31,9 @@
         // GIFを事前読み込み
         const gifImg = new Image();
         gifImg.src = 'images/correctgif/Brilliant.gif';
+        
+        // URLパラメータを取得
+        const urlParams = new URLSearchParams(window.location.search);
     
         const correctAnswer = "なつき"; // ここに正解を設定
 
@@ -45,9 +48,10 @@
                 // GIFオーバーレイを表示
                 document.getElementById('gifOverlay').classList.add('show');
 
-                // 2秒後に次のページへ
+                // 2秒後に次のページへ（パラメータを引き継ぐ）
                 setTimeout(() => {
-                    window.location.href = "question3.html";
+                    const params = urlParams.toString();
+                    window.location.href = params ? "question3.html?" + params : "question3.html";
                 }, 2000);
             } else {
                 message.textContent = "不正解です。もう一度考えてみてください。";

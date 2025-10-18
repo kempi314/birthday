@@ -33,7 +33,13 @@
         // URLパラメータをチェック
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('result') === 'ok') {
-            window.location.href = 'reward.html';
+            // amznlikパラメータを引き継ぐ
+            const amznlik = urlParams.get('amznlik');
+            if (amznlik) {
+                window.location.href = 'reward.html?amznlik=' + encodeURIComponent(amznlik);
+            } else {
+                window.location.href = 'reward.html';
+            }
         }
         
         const correctAnswer = "まのさば"; // ここに正解を設定

@@ -32,6 +32,9 @@
         const gifImg = new Image();
         gifImg.src = 'images/correctgif/Fabulous.gif';
 
+        // URLパラメータを取得
+        const urlParams = new URLSearchParams(window.location.search);
+
         const correctAnswers = ["でしょ", "でしよ"]; // ここに正解を設定
 
         function checkAnswer() {
@@ -45,9 +48,10 @@
                 // GIFオーバーレイを表示
                 document.getElementById('gifOverlay').classList.add('show');
 
-                // 2秒後に成功ページへ
+                // 2秒後に成功ページへ（パラメータを引き継ぐ）
                 setTimeout(() => {
-                    window.location.href = "success.html";
+                    const params = urlParams.toString();
+                    window.location.href = params ? "success.html?" + params : "success.html";
                 }, 2000);
             } else {
                 message.textContent = "不正解です。もう一度考えてみてください。";
