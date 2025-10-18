@@ -32,13 +32,13 @@
         const gifImg = new Image();
         gifImg.src = 'images/correctgif/Fabulous.gif';
 
-        const correctAnswer = "テスト"; // ここに正解を設定
+        const correctAnswers = ["でしょ", "でしよ"]; // ここに正解を設定
 
         function checkAnswer() {
             const userAnswer = document.getElementById('answer').value.trim();
             const message = document.getElementById('message');
 
-            if (userAnswer === correctAnswer) {
+            if (correctAnswers.includes(userAnswer)) {
                 message.textContent = "正解！";
                 message.className = "message success";
 

@@ -14,10 +14,20 @@
             <div class="image-container">
                 <img src="images/result.gif" alt="クリア画像" class="final-image" id="resultGif">
             </div>
+            <div class="review-buttons">
+                <button onclick="showQuestion(1)" class="review-button">問題1見直し</button>
+                <button onclick="showQuestion(2)" class="review-button">問題2見直し</button>
+                <button onclick="showQuestion(3)" class="review-button">問題3見直し</button>
+            </div>
             <button onclick="location.href='index.html'" class="restart-button">
                 最初からやり直す
             </button>
         </div>
+    </div>
+    
+    <div class="popover" id="popover">
+        <button class="close-button" onclick="closePopover()">✕</button>
+        <img id="popoverImage" src="" alt="問題画像" class="popover-image">
     </div>
     
     <script>
@@ -27,6 +37,25 @@
         resultGif.onload = function() {
             document.getElementById('resultGif').src = 'images/result.gif';
         };
+        
+        function showQuestion(num) {
+            const popover = document.getElementById('popover');
+            const popoverImage = document.getElementById('popoverImage');
+            popoverImage.src = `images/Q${num}.png`;
+            popover.classList.add('show');
+        }
+        
+        function closePopover() {
+            const popover = document.getElementById('popover');
+            popover.classList.remove('show');
+        }
+        
+        // ポップオーバーの背景クリックで閉じる
+        document.getElementById('popover').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopover();
+            }
+        });
     </script>
 </body>
 

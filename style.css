@@ -243,6 +243,73 @@ button:active {
     object-fit: cover;
 }
 
+.review-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.review-button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.review-button:hover {
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+}
+
+.popover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popover.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popover-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.close-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(231, 76, 60, 0.9);
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 2001;
+}
+
+.close-button:hover {
+    background: rgba(192, 57, 43, 0.9);
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 30px 20px;
@@ -261,5 +328,13 @@ button:active {
         bottom: 20px;
         padding: 10px 25px;
         font-size: 0.9em;
+    }
+    
+    .close-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+        top: 10px;
+        right: 10px;
     }
 }
